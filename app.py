@@ -34,5 +34,6 @@ def get_links():
     return jsonify({"links": valid_links})
 
 if __name__ == '__main__':
+    # Use the environment variable for port in production
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
