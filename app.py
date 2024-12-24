@@ -1,10 +1,10 @@
 import os
 from flask import Flask, request, jsonify
 import urllib.request
-from flask_cors import CORS
+from flask_cors import CORS  # Import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app)  # Enable CORS for all origins (or you can specify a domain here)
 
 @app.route('/links', methods=['POST'])
 def get_links():
