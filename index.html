@@ -68,7 +68,7 @@
         document.getElementById('yearForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const year = document.getElementById('year').value;
-            fetch('https://your-heroku-app.herokuapp.com/links', {
+            fetch('https://your-app.onrender.com/links', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
