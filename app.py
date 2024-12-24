@@ -1,10 +1,12 @@
 import os
 from flask import Flask, request, jsonify
 import urllib.request
-from flask_cors import CORS  # Import CORS
+from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all origins (or you can specify a domain here)
+
+# Allow only the frontend domain (GitHub Pages) to access your backend
+CORS(app, resources={r"/*": {"origins": "https://bmchacks.github.io"}})
 
 @app.route('/links', methods=['POST'])
 def get_links():
@@ -34,6 +36,5 @@ def get_links():
     return jsonify({"links": valid_links})
 
 if __name__ == '__main__':
-    # Use the environment variable for port in production
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
